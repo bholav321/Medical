@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 export default function Header() {
     return <>
-        <nav class="navbar navbar-expand-lg nav-back sticky-top"
+        <nav class="navbar navbar-expand-lg bg-primary nav-back sticky-top"
             id="mainNav">
             <div class="container">
                 <h1>Medical</h1>
-                <button class="navbar-toggler navbar-toggler-right" type="button"
+                <button style={{zIndex:1,backgroundColor:"black"}} class="navbar-toggler navbar-toggler-right" type="button"
                     data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>

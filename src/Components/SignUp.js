@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 export default function SignUp() {
     const [name, setName] = useState("");
     const [contact, setContact] = useState("");
@@ -14,23 +16,33 @@ export default function SignUp() {
                 alert("Password and Confirm Password do not match");
             } else {
                 // "Api call"
-                axios.post("http://localhost:2024/user/signup",{username:name,contact,password}).then(res=>{
+                axios.post("http://localhost:2024/user/signup", { username: name, contact, password }).then(res => {
                     console.log(res.data);
-                    alert("Sign Up successfully..");
-                    setContact("");
+                    const user = JSON.stringify(res.data);
+                    localStorage.setItem("user", user)
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sign Up successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }); setContact("");
                     setPassword("");
                     setName("");
                     setConfirmPass("");
-                }).catch(err=>{
+                }).catch(err => {
                     console.log(err);
-                    alert("Something went wrong")
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!'
+                    });
                 });
             }
         }
     };
 
     return (<>
-            <Header/>
+        <Header />
         <div className='mt-5'>
             <section className='m-auto border p-2 container row d-flex justify-content-center align-items-center'>
                 <div className='col-md-5 p-3'>
@@ -45,7 +57,10 @@ export default function SignUp() {
                         <label className='mt-2' htmlFor="confirmPass">Confirm Password:</label>
                         <input onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass} required className='form-control' type="password" name="confirmPass" />
                         <button type='submit' className='btn btn-success mt-2'>Sign Up</button>
-                        &nbsp;&nbsp;<span className='text-primary'>Already have an account?</span>
+                        &nbsp;&nbsp;
+                        <Link to="/signin">
+                            <span className='text-primary'>Already have an account?</span>
+                        </Link>
                     </form>
                 </div>
                 <div className='col-md-5'>
