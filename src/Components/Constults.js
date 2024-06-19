@@ -8,7 +8,10 @@ function Constults() {
     const [time,setTime] = useState(null);
     const [symptoms,setSymptoms] = useState(null);
     const submitForm = ()=>{
-        alert(name+" "+contact+" "+date+" "+time+" "+symptoms)
+        if(name && contact && date && time && symptoms){
+            console.log("Form submitted successfully");
+            alert(name+" "+contact+" "+date+" "+time+" "+symptoms)
+        }
     }
     return (
         <body>
@@ -44,7 +47,7 @@ function Constults() {
                                     Date
                                 </label>
                                 <div class="col-sm-8 col-lg-8">
-                                    <input onChange={(e)=>setDate(e.target.value)} type="date" id="date" class="form-control" />
+                                    <input required onChange={(e)=>setDate(e.target.value)} type="date" id="date" class="form-control" />
                                 </div>
                             </div>
 
@@ -53,7 +56,7 @@ function Constults() {
                                     Time
                                 </label>
                                 <div class="col-sm-8 col-lg-8">
-                                    <input onChange={(e)=>setTime(e.target.value)} setTime type="time" id="time" class="form-control" />
+                                    <input required onChange={(e)=>setTime(e.target.value)} setTime type="time" id="time" class="form-control" />
                                 </div>
                             </div>
 
@@ -82,24 +85,6 @@ function Constults() {
                     </div>
                 </div>
             </div>
-            <footer class="footer py-4 mt-5">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
-                        <div class="col-lg-4 my-3 my-lg-0">
-                            <a class="btn btn-back btn-social mx-2" href="#!">
-                                <i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-back btn-social mx-2" href="#!">
-                                <i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-back btn-social mx-2" href="#!">
-                                <i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="col-lg-4 text-lg-right">
-                            <a class="mr-3 text" href="#!">Privacy Policy</a>
-                            <a href="#!" class="text">Terms of Use</a></div>
-                    </div>
-                </div>
-            </footer>
         </body>
     );
 }

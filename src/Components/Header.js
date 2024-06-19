@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 export default function Header() {
     return <>
-        <nav class="navbar navbar-expand-lg nav-back fixed-top"
+        <nav class="navbar navbar-expand-lg nav-back sticky-top"
             id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#">Medical</a>
+                <h1>Medical</h1>
                 <button class="navbar-toggler navbar-toggler-right" type="button"
                     data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false"
@@ -25,8 +25,10 @@ export default function Header() {
                             <li class="nav-item"><a class="nav-link"
                                 href="#projects">Consult</a></li>
                         </Link>
+                        <Link to="/signup">
                         <li class="nav-item"><a class="nav-link"
-                            href="#signup">Contact</a></li>
+                            href="#signup">Login</a></li>
+                        </Link>
                     </ul>
                 </div>
             </div>
