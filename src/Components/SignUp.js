@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 export default function SignUp() {
     const [name, setName] = useState("");
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
-
+    const navigate = useNavigate();
     const submitForm = (e) => {
         e.preventDefault();
         if (name && contact && password && confirmPass) {
@@ -18,7 +18,7 @@ export default function SignUp() {
                 // "Api call"
                 axios.post("http://localhost:2024/user/signup", { username: name, contact, password }).then(res => {
                     console.log(res.data);
-                    const user = JSON.stringify(res.data);
+                    const user = JSON.stringify(res.data.user);
                     localStorage.setItem("user", user)
                     Swal.fire({
                         icon: 'success',
@@ -29,6 +29,7 @@ export default function SignUp() {
                     setPassword("");
                     setName("");
                     setConfirmPass("");
+                    navigate("/")
                 }).catch(err => {
                     console.log(err);
                     Swal.fire({

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import { Link, json } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import GoogleSign from './Googlesignin';
 
 export default function SignIn() {
     const [contact, setContact] = useState("");
@@ -82,8 +83,9 @@ export default function SignIn() {
                             </Link>
                         </form>
                         <h5 className='text-center p-2'>or</h5>
-                       <h4 className='text-center'><span className='rounded border p-2'>Continue with Google</span>
-                        </h4>
+                       {/* <h4 className='text-center'><span className='rounded border p-2'>Continue with Google</span>
+                        </h4> */}
+                        <GoogleSign/>
                     </div>
                 </section>
             </div>
