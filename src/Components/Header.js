@@ -6,7 +6,7 @@ export default function Header() {
             id="mainNav">
             <div class="container">
                 <h1>Medical</h1>
-                <button style={{zIndex:1,backgroundColor:"black"}} class="navbar-toggler navbar-toggler-right" type="button"
+                <button style={{ zIndex: 1, backgroundColor: "black" }} class="navbar-toggler navbar-toggler-right" type="button"
                     data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
@@ -21,14 +21,17 @@ export default function Header() {
                             href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link"
                             href="#about">Medical Camps</a></li>
-                        {/* <Link to="/contact">
-                            <li class="nav-item"><a class="nav-link"
-                                href="#projects">Consult</a></li>
-                        </Link> */}
-                        <Link to="/user">
-                        <li class="nav-item"><a class="nav-link"
-                            href="#signup">Login</a></li>
-                        </Link>
+                        <li class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Login
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Doctor</a>
+                              <Link to="/user" style={{textDecoration:'none'}}>
+                                <a class="dropdown-item" href="#">Patient</a>
+                              </Link>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

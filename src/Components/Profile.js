@@ -47,12 +47,12 @@ function Profile() {
                     </div>
                     <h5 className='text-center mt-2'>{user.username}</h5>
                     <div className='mt-3'>
-                        <ul className='list-unstyled fs-3'>
-                            <Link to="">
+                        <ul className='list-unstyled text-dark fs-3 ms-4'>
+                            <Link to="" style={{textDecoration:'none'}}>
                             <li>Profile</li>
                             </Link>
                             <li>b</li>
-                            <Link to="contact">
+                            <Link to="contact" style={{textDecoration:'none'}}>
                             <li>Consult</li>
                             </Link>
                             <li>d</li>

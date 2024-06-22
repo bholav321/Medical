@@ -9,6 +9,7 @@ import Profile from './Components/Profile';
 
 import UserDetails from './Components/UserDetails';
 import Auth from './Components/Auth.js';
+import DoctorSignUp from './Doctor/DoctorSignUp.js';
 function App() {
   return<>
     {/* <h3>App. Component..</h3> */}
@@ -16,13 +17,14 @@ function App() {
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/' element={<Home/>}/>
-      {/* <Route path='sing' */}
-
       <Route path="user" element={<Auth><Profile /></Auth>}>
       {/* <Route path='user' element = {<Profile/>}> */}
       <Route path="contact" element={<Consult/>}/>
       <Route index element = {<UserDetails/>}/>
       </Route>
+
+      {/* -------------------------------------------- */}
+      <Route path="/doctorSignUp" element={<DoctorSignUp/>}/>
     </Routes>
   </>
 }
