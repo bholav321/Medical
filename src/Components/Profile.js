@@ -4,12 +4,38 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { FiEdit } from "react-icons/fi";
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 
 function Profile() {
+    const navigate = useNavigate();
     let user = localStorage.getItem("user");
     user = JSON.parse(user);
     let userId = localStorage.getItem("userId");
+    const logout = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, log me out!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                Swal.fire(
+                    'Logged Out!',
+                    'You have been successfully logged out.',
+                    'success'
+                ).then(() => {
+                    // Redirect to login or home page if needed
+                    navigate("/")
+                    // window.location.href = 'login.html'; // Change this to your desired page
+                });
+            }
+        });
+    }
+    
     return <>
         {/* <h1>Profile Page</h1> */}
         <div className="container-fluid mt-5">
@@ -34,7 +60,7 @@ function Profile() {
                         </ul>
                     </div>
                     <center>
-                        <button className='btn btn-light border fs-5'><FaSignOutAlt />logout</button>
+                        <button className='btn btn-light border fs-5' onClick={logout}><FaSignOutAlt />logout</button>
                     </center>
                 </div>
                 <div className='col-md-9 border'>

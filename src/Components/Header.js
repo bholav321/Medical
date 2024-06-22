@@ -21,11 +21,11 @@ export default function Header() {
                             href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link"
                             href="#about">Medical Camps</a></li>
-                        <Link to="/consult">
+                        {/* <Link to="/contact">
                             <li class="nav-item"><a class="nav-link"
                                 href="#projects">Consult</a></li>
-                        </Link>
-                        <Link to="/signup">
+                        </Link> */}
+                        <Link to="/user">
                         <li class="nav-item"><a class="nav-link"
                             href="#signup">Login</a></li>
                         </Link>

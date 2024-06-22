@@ -40,7 +40,7 @@ function UserDetails() {
                 setEmail(updatedUser.email);
                 setContact(updatedUser.contact);
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "success",
                     title: "Profile Updated",
                     showConfirmButton: false,
