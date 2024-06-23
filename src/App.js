@@ -10,6 +10,8 @@ import Profile from './Components/Profile';
 import UserDetails from './Components/UserDetails';
 import Auth from './Components/Auth.js';
 import DoctorSignUp from './Doctor/DoctorSignUp.js';
+import DoctorSignIn from './Doctor/DoctorSignIn.js';
+import DoctorProfile from './Doctor/DoctorProfile.js';
 function App() {
   return<>
     {/* <h3>App. Component..</h3> */}
@@ -25,6 +27,9 @@ function App() {
 
       {/* -------------------------------------------- */}
       <Route path="/doctorSignUp" element={<DoctorSignUp/>}/>
+      <Route path="/doctorSignin" element={<DoctorSignIn/>}/>
+      <Route path="/doctorProfile" element={<DoctorProfile/>}/>
+
     </Routes>
   </>
 }

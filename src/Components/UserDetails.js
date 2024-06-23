@@ -77,7 +77,7 @@ function UserDetails() {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Password Updated",
+                     title: "Password Updated",
                     showConfirmButton: false,
                     timer: 1500,
                 });

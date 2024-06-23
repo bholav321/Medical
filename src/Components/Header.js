@@ -26,7 +26,9 @@ export default function Header() {
                               Login
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <Link to="/doctorSignUp" style={{textDecoration:'none'}}>
                                 <a class="dropdown-item" href="#">Doctor</a>
+                                </Link>
                               <Link to="/user" style={{textDecoration:'none'}}>
                                 <a class="dropdown-item" href="#">Patient</a>
                               </Link>
