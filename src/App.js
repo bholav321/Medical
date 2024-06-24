@@ -12,6 +12,13 @@ import Auth from './Components/Auth.js';
 import DoctorSignUp from './Doctor/DoctorSignUp.js';
 import DoctorSignIn from './Doctor/DoctorSignIn.js';
 import DoctorProfile from './Doctor/DoctorProfile.js';
+import DoctorDetails from './Doctor/DoctorDetails.js';
+import PatientsList from './Doctor/PatientsList.js';
+import MedicineForm from './Doctor/MedicineForm.js';
+import CreateAc from './Doctor/CreateAc.js';
+import MedicineStatus from './Components/MedicineStatus.js';
+import DocAuth from './Doctor/DocAuth.js';
+import AssignMedicine from './Doctor/AssignMedicine.js';
 function App() {
   return<>
     {/* <h3>App. Component..</h3> */}
@@ -23,13 +30,19 @@ function App() {
       {/* <Route path='user' element = {<Profile/>}> */}
       <Route path="contact" element={<Consult/>}/>
       <Route index element = {<UserDetails/>}/>
+      <Route path='medicineStatus' element={<MedicineStatus/>}/>
       </Route>
 
       {/* -------------------------------------------- */}
       <Route path="/doctorSignUp" element={<DoctorSignUp/>}/>
       <Route path="/doctorSignin" element={<DoctorSignIn/>}/>
-      <Route path="/doctorProfile" element={<DoctorProfile/>}/>
-
+      <Route path="doctorProfile" element={<DocAuth><DoctorProfile/></DocAuth>}>
+        <Route index element={<DoctorDetails/>}/>
+        <Route path="patientList" element={<PatientsList/>}/>
+        <Route path='medicineForm' element={<MedicineForm/>}/>
+        <Route path='medicineAssign' element={<AssignMedicine/>}/>
+        <Route path='accountCreation' element={<CreateAc/>}/>
+      </Route>
     </Routes>
   </>
 }

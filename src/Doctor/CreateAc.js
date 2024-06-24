@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
 
-export default function SignUp() {
+export default function CreateAc() {
     const [name, setName] = useState("");
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
@@ -77,7 +76,7 @@ export default function SignUp() {
                     localStorage.setItem("user", user);
                     Swal.fire({
                         icon: 'success',
-                        title: 'SignUp Successfully...',
+                        title: 'Account Created Successfully...',
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -102,9 +101,8 @@ export default function SignUp() {
 
     return (
         <>
-        <Header/>
             <div className='m-3'>
-                <section className='m-auto p-2 border container row d-flex justify-content-center align-items-center'>
+                <section className='m-auto p-2 row d-flex justify-content-center align-items-center'>
                     <div className='col-md-5 p-3'>
                         <h2 className='text-center'>Create Account</h2>
                         <form method='post' className='form-group row' onSubmit={submitForm}>

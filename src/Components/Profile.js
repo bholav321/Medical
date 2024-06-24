@@ -22,7 +22,7 @@ function Profile() {
             confirmButtonText: 'Yes, log me out!'
         }).then((result) => {
             if (result.isConfirmed) {
-                localStorage.clear();
+                localStorage.removeItem('user');
                 Swal.fire(
                     'Logged Out!',
                     'You have been successfully logged out.',
@@ -47,15 +47,17 @@ function Profile() {
                     </div>
                     <h5 className='text-center mt-2'>{user.username}</h5>
                     <div className='mt-3'>
-                        <ul className='list-unstyled text-dark fs-3 ms-4'>
-                            <Link to="" style={{textDecoration:'none'}}>
+                        <ul className='list-unstyled text-dark fs-4 p-4'>
+                            <Link to="" className='text-dark' style={{textDecoration:'none'}}>
                             <li>Profile</li>
                             </Link>
-                            <li>b</li>
-                            <Link to="contact" style={{textDecoration:'none'}}>
+                            {/* <li>b</li> */}
+                            <Link to="contact" className='text-dark' style={{textDecoration:'none'}}>
                             <li>Consult</li>
                             </Link>
-                            <li>d</li>
+                            <Link className='text-dark' to="medicineStatus" style={{textDecoration:'none'}}>
+                            <li>Medicine Status</li>
+                            </Link>
                             <li>e</li>
                         </ul>
                     </div>

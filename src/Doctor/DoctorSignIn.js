@@ -1,26 +1,23 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import Header from '../Components/Header';
-import { Link, json } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleSign from '../Components/Googlesignin';
 export default function DoctorSignIn() {
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const submitForm = (e) => {
         e.preventDefault();
         if (contact && password) {
-          let result = localStorage.getItem("user");
-          result = JSON.parse(result)
-          console.log(result)
-          const token = result.token;
-          console.log(token)
-          console.log(token)
-            axios.post("http://localhost:2024/doctor/signin", { token,contact, password }).then(res => {
-                console.log(res.data);
-                const user = JSON.stringify(res.data);
-                localStorage.setItem("user", user);
+        //   let result = localStorage.getItem("doctor");
+        //   result = JSON.parse(result)
+        //   console.log(result)
+        //   const token = result.token;
+            axios.post("http://localhost:2024/doctor/signin", { contact, password }).then(res => {
+                const user = JSON.stringify(res.data.doctor);
+                localStorage.setItem("doctor", user);
                 Swal.fire({
                     icon: 'success',
                     title: 'Sign In successfully',
@@ -29,6 +26,7 @@ export default function DoctorSignIn() {
                 });
                 setContact("");
                 setPassword("");
+                navigate("/")
             }).catch(err => {
                 console.log(err);
                 Swal.fire({

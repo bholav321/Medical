@@ -8,8 +8,7 @@ import axios from 'axios';
 function UserDetails() {
     let user = localStorage.getItem("user");
     user = JSON.parse(user);
-    let userId = localStorage.getItem("userId");
-    console.log(userId)
+    let userId = user._id;
     const [disabled, setDisabled] = useState(true);
     const [disabledEntity, setDisabledEntity] = useState(true);
     const [oldPassword, setOldPassword] = useState("");
@@ -32,7 +31,7 @@ function UserDetails() {
     };
     const editProfile = () => {
         const updatedName = firstname + " " + lastname;
-        localStorage.setItem("user", JSON.stringify({ id: user._id, username: updatedName, email, contact, userId }));
+        localStorage.setItem("user", JSON.stringify({username: updatedName, email, contact, _id:userId }));
         axios.post("http://localhost:2024/user/updatedetail", { username: updatedName, email, contact, userId })
             .then((result) => {
                 const updatedUser = result.data.user;

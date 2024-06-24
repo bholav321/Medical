@@ -1,26 +1,26 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import Header from './Header';
-import { Link, json } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleSign from './Googlesignin';
 
 export default function SignIn() {
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const submitForm = (e) => {
         e.preventDefault();
         if (contact && password) {
           let result = localStorage.getItem("user");
           result = JSON.parse(result)
           console.log(result)
-          const token = result.token;
+          const token = localStorage.getItem("token");
           console.log(token)
           console.log(token)
             axios.post("http://localhost:2024/user/signin", { token,contact, password }).then(res => {
                 console.log(res.data);
-                const user = JSON.stringify(res.data);
+                const user = JSON.stringify(res.data.user);
                 localStorage.setItem("user", user);
                 Swal.fire({
                     icon: 'success',
@@ -30,6 +30,7 @@ export default function SignIn() {
                 });
                 setContact("");
                 setPassword("");
+                navigate("/")
             }).catch(err => {
                 console.log(err);
                 Swal.fire({

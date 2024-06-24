@@ -57,6 +57,7 @@ export default function DoctorSignUp() {
             }).then(res => {
                 console.log(res.data);
                 const doctor = JSON.stringify(res.data.doctor);
+                localStorage.setItem("token",res.data.token)
                 localStorage.setItem("doctor", doctor)
                 Swal.fire({
                     icon: 'success',
